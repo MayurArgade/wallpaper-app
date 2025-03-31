@@ -18,10 +18,11 @@ const observer = new IntersectionObserver((entries) => {
     });
 }, { threshold: 0.1 });
 
+
 // Load Wallpapers Function with Error Handling
 async function loadWallpapers() {
     try {
-        const res = await fetch('http://127.0.0.1:8000/api/wallpapers');
+        const res = await fetch('https://wallpaper-app-ur40.onrender.com/api/wallpapers'); // ✅ Updated API URL
         if (!res.ok) throw new Error('Failed to load wallpapers');
         const wallpapers = await res.json();
         displayWallpapers(wallpapers);
@@ -30,6 +31,7 @@ async function loadWallpapers() {
         alert("Error loading wallpapers. Please try again later.");
     }
 }
+
 
 // Display Wallpapers Function
 function displayWallpapers(wallpapers) {
@@ -43,7 +45,8 @@ function displayWallpapers(wallpapers) {
             const div = document.createElement("div");
             div.classList.add("wall-item", "scroll-reveal");
             div.innerHTML = `
-                <img src="${wallpaper.url}" alt="Wallpaper">
+               <img src="${wallpaper.url.startsWith('/') ? 'https://wallpaper-app-ur40.onrender.com' + wallpaper.url : wallpaper.url}" alt="Wallpaper">
+
                 ${wallpaper.premium ? `<button class="download-btn premium" onclick="buyPremium()">Buy ($5)</button>`
                                     : `<button class="download-btn" onclick="downloadImage('${wallpaper.url}')">Download</button>`}
             `;
