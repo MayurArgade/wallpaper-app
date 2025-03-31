@@ -91,7 +91,7 @@ function buyPremium(wallpaperId) {
         const rzp = new Razorpay(options);
         rzp.open();
     } else {
-        window.open(`https://gumroad.com/l/${wallpaperId}`, "_blank");
+    window.open("https://mayurargade.gumroad.com/l/dthpvk", "_blank");
     }
 }
 
