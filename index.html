@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Download AI-generated wallpapers for free or explore premium collections. High-quality digital art for all devices.">
+    <meta name="keywords" content="AI Wallpapers, HD Wallpapers, Free Wallpapers, Premium Wallpapers, Digital Art">
+    <meta name="robots" content="index, follow">
+    <meta name="author" content="Your Website Name">
+    
+    <title>Simple Wallpapers | AI-Generated Art</title>
+    
+    <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/cc14be1ebd.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <!-- Added Theme Toggle Button -->
+    <i class="fa-solid fa-toggle-off fa-2x theme-toggle" onclick="toggleTheme()"></i>
+    
+    <h1>Simple Wallpapers</h1>
+    
+    <div style="position: sticky; top: 0; background: var(--nav-bg); backdrop-filter: blur(10px); padding: 1rem 0; z-index: 100;">
+        <button onclick="filterWallpapers(false)">Free Wallpapers</button>
+        <button onclick="filterWallpapers(true)">Premium Wallpapers</button>
+        <button onclick="loadWallpapers()">All Wallpapers</button>
+    </div>
+
+    <h2>Browse AI-Generated Wallpapers</h2>
+    <div class="wall-grid" id="wallpaperContainer"></div>
+    
+    <!-- Social Media Links -->
+    <div class="social-buttons">
+        <a href="https://www.instagram.com" target="_blank" title="Instagram">
+            <span style="color: Mediumslateblue;">
+                <i class="fa-brands fa-instagram fa-1x" ></i>    
+            </span>   
+        </a>
+        <a href="https://www.pinterest.com" target="_blank" title="Pinterest">
+            <span style="color: Mediumslateblue;">
+                <i class="fa-brands fa-pinterest fa-1x"></i>
+            </span>
+        </a>
+        <a href="https://twitter.com" target="_blank" title="Twitter">
+            <span style="color: Mediumslateblue;">
+                <i class="fa-brands fa-square-x-twitter fa-1x"></i>
+            </span>
+        </a>
+    </div>
+
+    <!-- Copyright Notice -->
+    <footer class="footer">
+        <p>&copy; 2025 Your Website Name. All Rights Reserved. AI-generated wallpapers are protected under copyright law.</p>
+    </footer>
+    
+
+    <script src="script.js"></script>
+</body>
+</html>

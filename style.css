@@ -1,0 +1,239 @@
+/* General Styling */
+:root {
+    --bg-color: #ffffff;
+    --text-color: #333333;
+    --nav-bg: rgba(255, 255, 255, 0.9);
+    --card-bg: #ffffff;
+    --button-bg: #4CAF50;
+    --button-hover-bg: #45a049;
+    --button-border-radius: 50px;
+    --button-padding: 12px 20px;
+    --transition-speed: 0.3s ease;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    text-align: center;
+    background: var(--bg-color);
+    color: var(--text-color);
+    margin: 0;
+    scroll-behavior: smooth; /* Smooth scrolling */
+}
+
+/* Header Animation */
+h1 {
+    padding: 2rem 0 1rem;
+    margin: 0;
+    font-size: 2.5rem;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeIn 0.6s ease-out forwards;
+}
+
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Navigation Bar Styling */
+nav {
+    position: sticky;
+    top: 0;
+    background: var(--nav-bg);
+    backdrop-filter: blur(10px);
+    padding: 1rem 0;
+    z-index: 1000;
+    border-bottom: 2px solid #ddd;
+}
+
+ button {
+    margin: 0 10px;
+    padding: 10px 20px;
+    font-size: 16px;
+    background: transparent;
+    border: 2px solid var(--button-bg);
+    color: var(--button-bg);
+    cursor: pointer;
+    border-radius: 50px;
+    transition: background-color var(--transition-speed), color var(--transition-speed);
+}
+
+ button:hover {
+    background-color: var(--button-bg);
+    color: #fff;
+}
+
+/* Wallpaper Grid */
+.wall-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    padding: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.wall-item {
+    position: relative;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    background: var(--card-bg);
+    transform: translateY(0);
+    transition: transform 0.3s ease, box-shadow var(--transition-speed);
+}
+
+.wall-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 15px rgba(0,0,0,0.2);
+}
+
+.wall-item img {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.3s ease;
+}
+
+.wall-item:hover img {
+    transform: scale(1.05);
+}
+
+/* Buttons for Wallpaper Actions */
+.download-btn {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    padding: var(--button-padding);
+    background: var(--button-bg);
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: var(--button-border-radius);
+    transition: background-color var(--transition-speed), transform var(--transition-speed);
+}
+
+.download-btn:hover {
+    background: var(--button-hover-bg);
+    transform: scale(1.05);
+}
+
+.premium {
+    background: #ff6b6b;
+}
+
+.premium:hover {
+    background: #ff4747;
+}
+
+/* Smooth Scroll Reveal */
+.scroll-reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.scroll-reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Social Media Handles */
+.social-media {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    display: flex;
+    gap: 15px;
+    z-index: 100;
+}
+
+.social-media a {
+    display: inline-block;
+    padding: 10px;
+    background: #333;
+    border-radius: 50%;
+    color: white;
+    font-size: 24px;
+    text-align: center;
+    transition: transform 0.3s, background 0.3s;
+}
+
+.social-media a:hover {
+    background: #4CAF50;
+    transform: translateY(-5px);
+}
+
+/* Dark Mode Styling */
+.dark-mode {
+    --bg-color: #1a1a1a;
+    --text-color: #ffffff;
+    --nav-bg: rgba(26, 26, 26, 0.9);
+    --card-bg: #2d2d2d;
+}
+.social-buttons {
+    position: fixed;
+    bottom: 20px; /* Adjust to desired space from the bottom */
+    left: 29%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 15px; /* Space between icons */
+    z-index: 1000; /* Makes sure it's on top of other elements */
+}
+
+.social-buttons a {
+    color: #000; /* Default color for icons */
+    text-decoration: none; /* Remove underline */
+}
+
+.social-buttons i {
+    transition: color 0.3s ease; /* Smooth color transition */
+}
+
+.social-buttons a:hover i {
+    color: #0077b5; /* Color on hover (for example, a shade of blue) */
+}
+
+footer {
+    background-color: #222; /* Dark background */
+    color: #fff; /* White text */
+    text-align: center;
+    padding: 15px 0;
+    font-size: 14px;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
+
+footer p {
+    margin: 0;
+    padding: 5px;
+    font-weight: 300;
+}
+
+footer a {
+    color: #4CAF50; /* Greenish link */
+    text-decoration: none;
+    font-weight: bold;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+/* Footer Styling */
+.footer {
+    background-color: #222;
+    color: #fff;
+    text-align: center;
+    padding: 15px 0;
+    font-size: 14px;
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+}
+

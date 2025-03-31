@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Admin Upload</title>
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; margin-top: 50px; }
+        .container { max-width: 400px; margin: auto; padding: 20px; border: 1px solid #ddd; border-radius: 8px; }
+        input, select, button { display: block; width: 100%; margin: 10px 0; padding: 10px; }
+    </style>
+</head>
+<body>
+    <div class="container" id="login-box">
+        <h2>Admin Login</h2>
+        <input type="password" id="password" placeholder="Enter Password">
+        <button onclick="checkPassword()">Login</button>
+    </div>
+
+    <div class="container" id="upload-box" style="display: none;">
+        <h2>Upload Wallpaper</h2>
+        <input type="file" id="fileInput">
+        <select id="premium">
+            <option value="false">Free</option>
+            <option value="true">Premium</option>
+        </select>
+        <button onclick="uploadImage()">Upload</button>
+    </div>
+
+    <script>
+        function checkPassword() {
+            let password = document.getElementById('password').value;
+            if (password === 'admin123') { // Change this password!
+                document.getElementById('login-box').style.display = 'none';
+                document.getElementById('upload-box').style.display = 'block';
+            } else {
+                alert('Wrong password!');
+            }
+        }
+
+        function uploadImage() {
+            let file = document.getElementById('fileInput').files[0];
+            let premium = document.getElementById('premium').value;
+
+            if (!file) {
+                alert('Please select a file');
+                return;
+            }
+            
+            let formData = new FormData();
+            formData.append('file', file);
+            formData.append('premium', premium);
+            
+            fetch('http://127.0.0.1:8000/api/upload', {  // ✅ Corrected API URL
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.error) {
+                    alert('Upload failed: ' + data.error);
+                } else {
+                    alert('Upload successful!');
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('Upload failed! Check console for details.');
+            });
+        }
+    </script>
+</body>
+</html>
