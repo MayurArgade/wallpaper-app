@@ -1,239 +1,242 @@
-/* General Styling */
-:root {
-    --bg-color: #ffffff;
-    --text-color: #333333;
-    --nav-bg: rgba(255, 255, 255, 0.9);
-    --card-bg: #ffffff;
-    --button-bg: #4CAF50;
-    --button-hover-bg: #45a049;
-    --button-border-radius: 50px;
-    --button-padding: 12px 20px;
-    --transition-speed: 0.3s ease;
+/* Instagram-like UI */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Helvetica Neue", Arial, sans-serif;
 }
 
 body {
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    text-align: center;
-    background: var(--bg-color);
-    color: var(--text-color);
-    margin: 0;
-    scroll-behavior: smooth; /* Smooth scrolling */
+    background-color: #fafafa;
+    color: #262626;
 }
-
-/* Header Animation */
-h1 {
-    padding: 2rem 0 1rem;
-    margin: 0;
-    font-size: 2.5rem;
-    opacity: 0;
-    transform: translateY(20px);
-    animation: fadeIn 0.6s ease-out forwards;
-}
-
-@keyframes fadeIn {
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-/* Navigation Bar Styling */
-nav {
-    position: sticky;
-    top: 0;
-    background: var(--nav-bg);
-    backdrop-filter: blur(10px);
-    padding: 1rem 0;
-    z-index: 1000;
-    border-bottom: 2px solid #ddd;
-}
-
- button {
-    margin: 0 10px;
-    padding: 10px 20px;
-    font-size: 16px;
-    background: transparent;
-    border: 2px solid var(--button-bg);
-    color: var(--button-bg);
-    cursor: pointer;
-    border-radius: 50px;
-    transition: background-color var(--transition-speed), color var(--transition-speed);
-}
-
- button:hover {
-    background-color: var(--button-bg);
+.dark-mode {
+    background-color: #181818;
     color: #fff;
 }
 
-/* Wallpaper Grid */
+/* Optional: Change icons or colors in dark mode */
+.dark-mode .theme-toggle {
+    color: #ffcc00;
+}
+
+h1, h2 {
+    text-align: center;
+    margin: 20px 0;
+}
+
+/* Navigation Bar */
+.navbar {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: start;
+    background-color: inherit;
+    padding: 10px 100px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    position: static;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+}
+
+
+/* Navbar Button Style */
+.navbar button {
+    background: #352f51;  /* Instagram-like Red */
+    color: rgb(145, 198, 255);
+    border: none;
+    padding: 10px 15px;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    padding: 10px 100px;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: start;
+}
+
+.navbar button:hover {
+    background: #7abaff;
+    transform: scale(1.05);
+}
+/* Dark Mode Support */
+.dark-mode .navbar {
+    background: #222;
+}
+
+.dark-mode .navbar button {
+    background: #ffcc00;
+    color: #222;
+}
+
+.dark-mode .navbar button:hover {
+    background: #e6b800;
+}
+
+
+/* Instagram-like Grid Layout */
 .wall-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2rem;
-    padding: 2rem;
-    max-width: 1200px;
-    margin: 0 auto;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 5px;
+    padding: 50px 10px; /* Adjusted padding for navbar */
 }
 
+/* Instagram Post Styling */
 .wall-item {
     position: relative;
-    border-radius: 12px;
     overflow: hidden;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-    background: var(--card-bg);
-    transform: translateY(0);
-    transition: transform 0.3s ease, box-shadow var(--transition-speed);
-}
-
-.wall-item:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 15px rgba(0,0,0,0.2);
+    border-radius: 5px;
+    cursor: pointer;
+    transition: transform 0.3s ease-in-out;
 }
 
 .wall-item img {
     width: 100%;
-    height: 400px;
+    height: auto;
     object-fit: cover;
-    display: block;
-    transition: transform 0.3s ease;
 }
 
-.wall-item:hover img {
-    transform: scale(1.05);
+/* Hover Effect */
+.wall-item:hover {
+    transform: scale(1.03);
 }
 
-/* Buttons for Wallpaper Actions */
-.download-btn {
-    position: absolute;
-    bottom: 10px;
-    left: 10px;
-    padding: var(--button-padding);
-    background: var(--button-bg);
+/* Buttons */
+button {
+    background-color: #0095f6;
     color: white;
     border: none;
+    padding: 8px 15px;
+    border-radius: 4px;
+    font-size: 14px;
     cursor: pointer;
-    border-radius: var(--button-border-radius);
-    transition: background-color var(--transition-speed), transform var(--transition-speed);
+    transition: 0.3s;
 }
 
-.download-btn:hover {
-    background: var(--button-hover-bg);
-    transform: scale(1.05);
+button:hover {
+    background-color: #0077cc;
 }
 
-.premium {
-    background: #ff6b6b;
-}
-
-.premium:hover {
-    background: #ff4747;
-}
-
-/* Smooth Scroll Reveal */
-.scroll-reveal {
-    opacity: 0;
-    transform: translateY(30px);
-    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-}
-
-.scroll-reveal.active {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-/* Social Media Handles */
-.social-media {
-    position: fixed;
-    bottom: 20px;
-    left: 20px;
-    display: flex;
-    gap: 15px;
-    z-index: 100;
-}
-
-.social-media a {
-    display: inline-block;
-    padding: 10px;
-    background: #333;
-    border-radius: 50%;
-    color: white;
+/* Close Button */
+.close {
+    position: absolute;
+    top: 10px;
+    right: 15px;
     font-size: 24px;
+    cursor: pointer;
+    color: #fff;
+    font-weight: bold;
+    background: rgba(0, 0, 0, 0.6);
+    border-radius: 50%;
+    padding: 5px;
+    width: 30px;
+    height: 30px;
     text-align: center;
-    transition: transform 0.3s, background 0.3s;
+    line-height: 30px;
 }
 
-.social-media a:hover {
-    background: #4CAF50;
-    transform: translateY(-5px);
+.close:hover {
+    background: rgba(0, 0, 0, 0.8);
 }
 
-/* Dark Mode Styling */
-.dark-mode {
-    --bg-color: #1a1a1a;
-    --text-color: #ffffff;
-    --nav-bg: rgba(26, 26, 26, 0.9);
-    --card-bg: #2d2d2d;
+/* Modal */
+
+.modal-content {
+    position: relative;
+    background: #fff;
+    padding: 15px;
+    border-radius: 10px;
+    max-width: 500px;
 }
-.social-buttons {
+
+.modal {
+    display: none;
     position: fixed;
-    bottom: 20px; /* Adjust to desired space from the bottom */
-    left: 29%;
-    transform: translateX(-50%);
-    display: flex;
-    gap: 15px; /* Space between icons */
-    z-index: 1000; /* Makes sure it's on top of other elements */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    justify-content: center;
+    align-items: center;
+}
+.modal img {
+    width: 100%;
+    border-radius: 10px;
+}
+
+
+/* Footer (Like Instagram Web) */
+.footer {
+    text-align: center;
+    padding: 20px 0;
+    color: #555;
+}
+
+.footer a {
+    text-decoration: none;
+    color: #777;
+    margin: 0 10px;
+    font-size: 14px;
+}
+
+.footer a:hover {
+    color: #ff5757;
+}
+/* Social Media Buttons */
+.social-buttons {
+    text-align: center;
+    margin-top: 20px;
 }
 
 .social-buttons a {
-    color: #000; /* Default color for icons */
-    text-decoration: none; /* Remove underline */
+    margin: 0 10px;
+    font-size: 24px;
+    color: #262626;
+    transition: 0.3s;
 }
 
-.social-buttons i {
-    transition: color 0.3s ease; /* Smooth color transition */
+.social-buttons a:hover {
+    color: #0095f6;
 }
 
-.social-buttons a:hover i {
-    color: #0077b5; /* Color on hover (for example, a shade of blue) */
+/* Responsive Navbar - Mobile */
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        text-align: center;
+        padding: 10px;
+    }
+
+    .navbar button {
+        width: 100%;
+        padding: 12px;
+        font-size: 18px;
+    }
 }
 
-footer {
-    background-color: #222; /* Dark background */
-    color: #fff; /* White text */
-    text-align: center;
-    padding: 15px 0;
-    font-size: 14px;
-    position: relative;
-    bottom: 0;
-    width: 100%;
+
+/* Mobile Responsive Fix */
+@media (max-width: 768px) {
+    .navbar {
+        justify-content: center;
+    }
+
+    .nav-icons {
+        gap: 10px;
+    }
+
+    .wall-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
 }
 
-footer p {
-    margin: 0;
-    padding: 5px;
-    font-weight: 300;
-}
-
-footer a {
-    color: #4CAF50; /* Greenish link */
-    text-decoration: none;
-    font-weight: bold;
-}
-
-footer a:hover {
-    text-decoration: underline;
-}
-
-/* Footer Styling */
-.footer {
-    background-color: #222;
-    color: #fff;
-    text-align: center;
-    padding: 15px 0;
-    font-size: 14px;
-    width: 100%;
-    position: fixed;
-    bottom: 0;
-    left: 0;
+@media (max-width: 480px) {
+    .wall-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
 }
 
