@@ -1,3 +1,5 @@
+let wallpapers = [];  // Global wallpapers array
+
 document.addEventListener("DOMContentLoaded", () => {
     if (localStorage.getItem('theme') === 'dark') {
         document.body.classList.add('dark-mode');
@@ -41,8 +43,9 @@ async function loadWallpapers() {
     try {
         const res = await fetch('https://wallpaper-app-ur40.onrender.com/api/wallpapers');
         if (!res.ok) throw new Error('Failed to load wallpapers');
-        const wallpapers = await res.json();
-        displayWallpapers(wallpapers);
+
+        wallpapers = await res.json();   // Save globally
+        displayWallpapers(wallpapers);   // Pass to display
     } catch (error) {
         console.error('Error loading wallpapers:', error);
     }
@@ -67,21 +70,18 @@ function displayWallpapers(wallpapers) {
 }
 
 
-// Open Wallpaper Preview
 function openPreview(url) {
     const modal = document.getElementById('previewModal');
     const modalImg = document.getElementById('modalImg');
     const downloadBtn = document.getElementById('downloadBtn');
-    const modalDescription = document.getElementById('modalDescription'); // Get the description container
+    const modalDescription = document.getElementById('modalDescription');
 
-    // Find wallpaper object by URL
     const wallpaper = wallpapers.find(w => w.url === url);
 
     modal.style.display = "flex";
     modalImg.src = url;
     downloadBtn.setAttribute("onclick", `downloadImage('${url}')`);
 
-    // If found, set the description with links
     if (wallpaper) {
         modalDescription.innerHTML = wallpaper.description;
     } else {
