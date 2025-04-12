@@ -52,18 +52,16 @@ async function loadWallpapers() {
 function displayWallpapers(wallpapers) {
     const container = document.getElementById("wallpaperContainer");
     container.innerHTML = "";
-    
+
     wallpapers.forEach(wall => {
-        const description = "High-quality AI-generated wallpaper designed to elevate your device's aesthetic.";
-        
         const div = document.createElement("div");
         div.classList.add("wall-item");
-        
+
         div.innerHTML = `
-            <img src="${wall.url}" alt="${description}" onclick="openPreview('${wall.url}')">
-            <p>${description}</p>
+            <img src="${wall.url}" alt="Wallpaper" onclick="openPreview('${wall.url}')">
+            <p>${wall.description}</p>
         `;
-        
+
         container.appendChild(div);
     });
 }
