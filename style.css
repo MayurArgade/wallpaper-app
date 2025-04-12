@@ -24,6 +24,48 @@ h1, h2 {
     text-align: center;
     margin: 20px 0;
 }
+.intro-text {
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 30px;
+    border-radius: 20px;
+    backdrop-filter: blur(15px);
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    transition: all 0.3s ease;
+    text-align: center;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Light Mode */
+body:not(.dark-mode) .intro-text {
+    background: rgba(255, 255, 255, 0.8);
+    color: #1f1f1f;
+    border: 2px solid rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.05);
+}
+
+/* Dark Mode */
+body.dark-mode .intro-text {
+    background: rgba(53, 47, 81, 0.2);
+    color: #e0e0ff;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    text-shadow: 0 0 5px rgba(145, 198, 255, 0.2);
+}
+.intro-text h1 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+}
+
+.intro-text h1 span {
+    color: #8a2be2;
+    font-weight: bold;
+}
+
+.intro-text p {
+    font-size: 1.2rem;
+    line-height: 1.6;
+}
+
 
 /* Navigation Bar */
 .navbar {
