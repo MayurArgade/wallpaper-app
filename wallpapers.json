@@ -1,75 +1,92 @@
 [
     {
         "url": "https://res.cloudinary.com/dvpvasmkm/image/upload/v1743343846/cyberpunk_cityscape_zf4ie1.jpg",
-        "premium": false
+        "premium": false,
+         "description": "High-quality AI-generated wallpaper designed to elevate your device's aesthetic."
+
     },
     
     {
         "url": "https://res.cloudinary.com/dvpvasmkm/image/upload/v1743342084/anime-moon-landscape_xdcomt.jpg",
-        "premium": false
+        "premium": false,
+        "description": "High-quality AI-generated wallpaper designed to elevate your device's aesthetic."
     },
     
     {
         "url": "https://res.cloudinary.com/dvpvasmkm/image/upload/v1743345817/Leonardo_Phoenix_10_A_serene_atmosphere_with_warm_golden_light_1_vfqxf6.jpg",
-        "premium": false
+        "premium": false,
+        "description": "High-quality AI-generated wallpaper designed to elevate your device's aesthetic."
     },
 
     {
         "url": "https://res.cloudinary.com/dvpvasmkm/image/upload/v1743345817/Leonardo_Phoenix_10_A_mysterious_dark_alien_silhouette_shroude_2_j3imjz.jpg",
-        "premium": false
+        "premium": false,
+        "description": "High-quality AI-generated wallpaper designed to elevate your device's aesthetic."
     },
     {
         "url": "https://res.cloudinary.com/dvpvasmkm/image/upload/v1743345817/Leonardo_Phoenix_10_A_mysterious_dark_alien_silhouette_shroude_0_cbkyf2.jpg",
-        "premium": false
+        "premium": false,
+        "description": "High-quality AI-generated wallpaper designed to elevate your device's aesthetic."
     },
     {
         "url": "https://res.cloudinary.com/dvpvasmkm/image/upload/v1743345816/Leonardo_Phoenix_10_A_serene_and_whimsical_illustration_in_the_3_lthc4i.jpg",
-        "premium": false
+        "premium": false,
+        "description": "High-quality AI-generated wallpaper designed to elevate your device's aesthetic."
     },
     {
         "url": "https://res.cloudinary.com/dvpvasmkm/image/upload/v1743345816/Leonardo_Phoenix_10_A_serene_atmosphere_with_warm_golden_light_2_ipaysb.jpg",
-        "premium": false
+        "premium": false,
+        "description": "High-quality AI-generated wallpaper designed to elevate your device's aesthetic."
     },
      {
         "url": "https://res.cloudinary.com/dvpvasmkm/image/upload/v1743398881/bmk5t8vglzukdn5i4hj8.jpg",
-        "premium": true
+        "premium": true,
+         "description": "High-quality AI-generated wallpaper designed to elevate your device's aesthetic."
     },
      {
         "url": "https://res.cloudinary.com/dvpvasmkm/image/upload/v1743398881/penwx5tcnq9zb0degbk5.jpg",
-        "premium": true
+        "premium": true,
+         "description": "High-quality AI-generated wallpaper designed to elevate your device's aesthetic."
     },
       {
         "url": "https://res.cloudinary.com/dvpvasmkm/image/upload/v1743398881/sz9sxhlokohonaeoqmrp.jpg",
-        "premium": true
+        "premium": true,
+          "description": "High-quality AI-generated wallpaper designed to elevate your device's aesthetic."
     },
        
     {
         "url": "https://res.cloudinary.com/dvpvasmkm/image/upload/v1743602171/pcyzyymrbmghyueggqnr.png",
-        "premium": false
+        "premium": false,
+        "description": "High-quality AI-generated wallpaper designed to elevate your device's aesthetic."
     },
        
     {
         "url": "https://res.cloudinary.com/dvpvasmkm/image/upload/v1743602158/xuwmitedeqepvh6n1cid.jpg",
-        "premium": false
+        "premium": false,
+        "description": "High-quality AI-generated wallpaper designed to elevate your device's aesthetic."
     },
     
     {
         "url": "https://res.cloudinary.com/dvpvasmkm/image/upload/v1743345817/Leonardo_Phoenix_10_A_serene_atmosphere_with_warm_golden_light_1_vfqxf6.jpg",
-        "premium": false
+        "premium": false,
+        "description": "High-quality AI-generated wallpaper designed to elevate your device's aesthetic."
     },
 
     {
         "url": "https://res.cloudinary.com/dvpvasmkm/image/upload/v1743602158/ftve0n9fymedth7d0fxp.jpg",
-        "premium": false
+        "premium": false,
+        "description": "High-quality AI-generated wallpaper designed to elevate your device's aesthetic."
     },
       
     {
         "url": "https://res.cloudinary.com/dvpvasmkm/image/upload/v1743602164/wp1wkmu3h4spkllcooax.jpg",
-        "premium": false
+        "premium": false,
+        "description": "High-quality AI-generated wallpaper designed to elevate your device's aesthetic."
     },
         
     {
         "url": "https://res.cloudinary.com/dvpvasmkm/image/upload/v1743602158/yskbozxwivnergtmrylp.jpg",
-        "premium": false
+        "premium": false,
+        "description": "High-quality AI-generated wallpaper designed to elevate your device's aesthetic."
     }
 ]
