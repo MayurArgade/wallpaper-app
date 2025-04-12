@@ -28,10 +28,11 @@ h1, h2 {
 /* Navigation Bar */
 .navbar {
     display: flex;
-    justify-content: space-evenly;
-    align-items: start;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
     background-color: inherit;
-    padding: 10px 100px;
+    padding: 15px 50px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     position: static;
     width: 100%;
@@ -39,23 +40,24 @@ h1, h2 {
     z-index: 1000;
 }
 
-
 /* Navbar Button Style */
 .navbar button {
-    background: #352f51;  /* Instagram-like Red */
+    background: #352f51;
     color: rgb(145, 198, 255);
     border: none;
-    padding: 10px 15px;
+    padding: 10px 20px;
     font-size: 16px;
     font-weight: bold;
     border-radius: 5px;
     cursor: pointer;
     transition: all 0.3s ease-in-out;
-    padding: 10px 100px;
-    display: flex;
-    justify-content: space-evenly;
-    align-items: start;
 }
+
+.navbar button:hover {
+    background-color: #2a2540;
+    transform: scale(1.05);
+}
+
 
 .navbar button:hover {
     background: #7abaff;
@@ -214,36 +216,26 @@ button:hover {
 @media (max-width: 768px) {
     .navbar {
         flex-direction: column;
-        text-align: center;
+        align-items: center;
+        justify-content: center;
         padding: 10px;
+        gap: 10px; /* space between buttons */
     }
 
     .navbar button {
         width: 100%;
+        max-width: 300px; /* Optional limit */
         padding: 12px;
         font-size: 18px;
     }
-}
 
-
-/* Mobile Responsive Fix */
-@media (max-width: 768px) {
-    .navbar {
-        justify-content: center;
+    .wall-grid {
+        grid-template-columns: repeat(2, 1fr); /* Adjust to 1fr if needed */
     }
 
+    /* Optional: if using .nav-icons somewhere else */
     .nav-icons {
         gap: 10px;
-    }
-
-    .wall-grid {
-        grid-template-columns: repeat(3, 1fr);
-    }
-}
-
-@media (max-width: 480px) {
-    .wall-grid {
-        grid-template-columns: repeat(2, 1fr);
     }
 }
 
