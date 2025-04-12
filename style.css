@@ -219,7 +219,7 @@ button:hover {
     border-radius: 10px;
 }
 #modalDescription {
-    color: white;           /* Make sure text is visible on dark background */
+    color: #00FFFF;           
     font-size: 16px;
     margin-top: 10px;
     text-align: center;
