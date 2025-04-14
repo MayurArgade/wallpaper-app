@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Shop / Resources - VIBEWALLZ</title>
+  <link rel="stylesheet" href="style.css" />
+
+  <!-- ✅ Font Awesome CDN -->
+  <script src="https://kit.fontawesome.com/cc14be1ebd.js" crossorigin="anonymous"></script></head>
+
+<header class="shop-navbar">
+  <div class="shop-logo"><a href="index.html">VIBEWALLZ</a></div>
+  <nav class="shop-nav-links">
+    <a href="index.html">🏠 Home</a>
+    <a href="shop.html" class="active-link">🛍️ Shop</a>
+    <i class="fa-solid fa-moon fa-2x theme-toggle" onclick="toggleTheme()" id="themeIcon"></i>
+  </nav>
+</header>
+  <body>
+
+  <!-- ✨ Category Filter -->
+  <section class="shop-categories">
+    <button class="category-btn active" data-category="all">All</button>
+    <button class="category-btn" data-category="wall-design">Wall Design</button>
+    <button class="category-btn" data-category="poster">Posters</button>
+    <button class="category-btn" data-category="anime">Anime</button>
+    <button class="category-btn" data-category="kpop">K-Pop</button>
+    <button class="category-btn" data-category="general">General</button>
+  </section>
+
+  <!-- 🛍️ Products -->
+  <section class="shop-container">
+    <div class="product-card" data-category="poster">
+      <img src="https://m.media-amazon.com/images/I/81dKnGI-riL._SX679_.jpg" alt="Product 1" />
+      <h3>The weeknd Wall Art</h3>
+      <p>Bring the Hokage energy to your wall!</p>
+      <span class="price-tag">₹299</span> <span class="tag">🔥 Trending</span>
+      <a href="https://amzn.to/4crqGU2" target="_blank" class="buy-now-btn">Buy Now</a>
+    </div>
+
+    <div class="product-card" data-category="poster">
+      <img src="https://m.media-amazon.com/images/I/41RpsEOuJPL._SX300_SY300_QL70_FMwebp_.jpg" alt="Product 2" />
+      <h3>Song album Neon Poster</h3>
+      <p>Glow up your room with some K-vibes 💖</p>
+      <span class="price-tag">₹299</span>
+      <a href="https://amzn.to/3E6UvNh" target="_blank" class="buy-now-btn">Buy Now</a>
+    </div>
+
+    <div class="product-card" data-category="general">
+      <img src="https://m.media-amazon.com/images/I/41Wt1ZrLKtL.jpg" alt="Product 3" />
+      <h3>Aesthetic Quote Poster</h3>
+      <p>Daily motivation with clean design.</p>
+      <span class="price-tag">₹199</span>
+      <a href="https://amzn.to/3GlVdqk" target="_blank"  class="buy-now-btn">Buy Now</a>
+    </div>
+
+    <div class="product-card" data-category="anime">
+      <img src="https://m.media-amazon.com/images/I/61D16HfsIVL._SX679_.jpg" alt="Product 3" />
+      <h3>Aesthetic Quote Poster</h3>
+      <p>Daily motivation with clean design.</p>
+      <span class="price-tag">₹199</span>
+      <a href="https://amzn.to/3YpNSw7" target="_blank"  class="buy-now-btn">Buy Now</a>
+    </div>
+
+    <div class="product-card" data-category="general">
+      <img src="https://m.media-amazon.com/images/I/610HoG816HL._SY500_.jpg" alt="Product 3" />
+      <h3>Aesthetic Quote Poster</h3>
+      <p>Daily motivation with clean design.</p>
+      <span class="price-tag">₹1299</span>
+      <a href="https://amzn.to/4j6WTm6" target="_blank"  class="buy-now-btn">Buy Now</a>
+    </div>
+
+    <div class="product-card" data-category="anime">
+      <img src="https://m.media-amazon.com/images/I/61gtFBgUsSL._SX679_.jpg" alt="Product 3" />
+      <h3>Solo Leveling Ceramic Coffee Mug</h3>
+      <p>Daily motivation with clean design.</p>
+      <span class="price-tag">₹370</span>
+      <a href="https://amzn.to/4ltWn3h" target="_blank"  class="buy-now-btn">Buy Now</a>
+    </div>
+  </section>
+
+    <script src="script.js"></script>
+</body>
+</html>
