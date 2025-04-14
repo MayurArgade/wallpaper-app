@@ -73,14 +73,28 @@ body.dark-mode .intro-text {
     justify-content: center;
     flex-wrap: wrap;
     gap: 20px;
-    background-color: inherit;
+    background-color: rgba(255, 255, 255, 0.6); /* Make it semi-transparent */
+    backdrop-filter: blur(10px); /* Adds the blur effect */
+    -webkit-backdrop-filter: blur(10px); /* For Safari support */
     padding: 15px 50px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    position: static;
-    width: 100%;
+    position: sticky;
     top: 0;
+    width: 100%;
     z-index: 1000;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3); /* Optional subtle border */
 }
+.nav-left .logo {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #333;
+  }
+  
+  .nav-right {
+    display: flex;
+    align-items: center;
+  }
+  
 
 /* Navbar Button Style */
 .navbar button {
@@ -171,6 +185,19 @@ button:hover {
     background-color: #0077cc;
 }
 
+a {
+    color: rgb(145, 198, 255); /* your preferred color */
+    text-decoration: none;
+  }
+
+  a:hover {
+    text-decoration: underline;
+  }
+
+  a:visited {
+    color: rgb(145, 198, 255); /* override purple visited color */
+  }
+
 /* Close Button */
 .close {
     position: absolute;
@@ -233,20 +260,32 @@ button:hover {
     color: #555;
 }
 
-.footer a {
-    text-decoration: none;
-    color: #777;
-    margin: 0 10px;
-    font-size: 14px;
+.footer {
+    
+    color: #e6b800;
+    padding: 20px;
+    text-align: center;
 }
 
-.footer a:hover {
-    color: #ff5757;
+.footer .footer-links {
+    margin-bottom: 15px;
+}
+
+.footer .footer-links a {
+    color: #e6b800;
+    margin: 0 15px;
+    font-size: 16px;
+    text-decoration: none;
+}
+
+.footer .footer-links a:hover {
+    text-decoration: underline;
 }
 /* Social Media Buttons */
 .social-buttons {
     text-align: center;
     margin-top: 20px;
+    background-color: #e6b800;
 }
 
 .social-buttons a {
@@ -259,6 +298,236 @@ button:hover {
 .social-buttons a:hover {
     color: #0095f6;
 }
+
+/* Shop Page Only Styling */
+body.shop-page {
+    font-family: 'Poppins', sans-serif;
+    background: var(--bg-color, #add2f5);
+    color: var(--text-color, #222);
+    margin: 0;
+    padding: 0;
+    transition: all 0.3s ease;
+  }
+  
+  .shop-navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.2rem 2rem;
+    background-color: #f8f8f8;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  }
+  
+  body.dark-mode .shop-navbar {
+    background-color: #1a1a1a;
+  }
+  
+  .shop-logo a {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #333;
+    text-decoration: none;
+  }
+  
+  body.dark-mode .shop-logo a {
+    color: #fff;
+  }
+  
+  .shop-nav-links {
+    display: flex;
+    gap: 1.5rem;
+    align-items: center;
+  }
+  
+  .shop-nav-links a {
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+    font-size: 1rem;
+  }
+  
+  body.dark-mode .shop-nav-links a {
+    color: #fff;
+  }
+  
+  .shop-nav-links .active-link {
+    color: #FF69B4;
+    border-bottom: 2px solid #FF69B4;
+  }
+    
+  
+  
+  .shop-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    padding: 3rem;
+    max-width: 1200px;
+    margin: auto;
+  }
+ /* 🔥 Product Card Styling */
+.product-card {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    padding: 1.5rem;
+    backdrop-filter: blur(8px);
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  
+  
+  /* When the card becomes visible (when it enters the viewport) */
+  .product-card.visible {
+    opacity: 1;  /* Make it fully visible */
+    transform: translateY(0);  /* Reset position to its normal spot */
+  }
+  
+  /* Hover effect */
+.product-card:hover {
+    transform: scale(1.05); /* Slightly enlarge the card */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* Add a shadow to make the card "pop" */
+  }
+  
+  /* Optional: Add a smooth background color change */
+  .product-card:hover {
+    background-color: rgba(0, 0, 0, 0.05); /* Slight background color change on hover */
+  }
+  
+  /* Optional: Scale image on hover */
+  .product-card img {
+    transition: transform 0.3s ease;
+  }
+  
+  .product-card:hover img {
+    transform: scale(1.1); /* Slightly zoom the image */
+  }
+  
+  .product-card img {
+    width: 100%;
+    border-radius: 15px;
+  }
+  
+  .product-card h3 {
+    font-size: 1.2rem;
+    margin-top: 1rem;
+  }
+  
+  .product-card p {
+    font-size: 0.95rem;
+    color: #666;
+  }
+  
+  .product-card a {
+    display: inline-block;
+    margin-top: 1rem;
+    padding: 0.6rem 1.2rem;
+    background: #7f5af0;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 30px;
+    transition: background 0.2s ease;
+  }
+  
+  .price-tag {
+    font-weight: bold;
+    display: inline-block;
+    margin-top: 0.5rem;
+    color: #7f5af0;
+  }
+  
+  /* 🧃 Tag like trending, new etc */
+  .tag {
+    background: #ffe600;
+    color: #000;
+    font-size: 0.7rem;
+    padding: 0.2rem 0.6rem;
+    border-radius: 999px;
+    margin-left: 10px;
+  }
+  
+  /* 🌈 Category Buttons */
+  .shop-categories {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+    padding: 1rem 2rem;
+    margin-top: 2rem;
+  }
+  
+  .category-btn {
+    padding: 0.6rem 1.2rem;
+    border: none;
+    background: #eaeaea;
+    border-radius: 30px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: background 0.3s ease;
+  }
+  
+  .category-btn.active,
+  .category-btn:hover {
+    background: #7f5af0;
+    color: white;
+  }
+  .logo a {
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-decoration: none;
+    color: var(--text-color, #222);
+  }
+  
+  .right-nav {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+  }
+  
+  .home-link {
+    text-decoration: none;
+    font-size: 1rem;
+    color: #7f5af0;
+  }
+
+  .theme-toggle {
+    cursor: pointer;
+    color: var(--text-color);
+    transition: transform 0.2s;
+  }
+  
+  .theme-toggle:hover {
+    transform: scale(1.1);
+  }
+
+  /* Default state of the button */
+.buy-now-btn {
+    padding: 10px 20px;
+    background-color: #f37254; /* Color of the button */
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  /* Hover effect for the button */
+  .buy-now-btn:hover {
+    transform: scale(1.1); /* Slightly enlarge the button */
+    background-color: #ff7f66; /* Change background color when hovered */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15); /* Add a subtle shadow to the button */
+  }
+  
+  /* Optional: Add a little pop on click */
+  .buy-now-btn:active {
+    transform: scale(0.95); /* Make the button shrink slightly when clicked */
+    background-color: #ff5e42; /* Darker color on click */
+  }
+  
 
 /* Responsive Navbar - Mobile */
 @media (max-width: 768px) {
