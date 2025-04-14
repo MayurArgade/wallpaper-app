@@ -250,6 +250,26 @@ const cardObserver = new IntersectionObserver(entries => {
 // Define the cards variable to target the product cards
 const cards = document.querySelectorAll('.product-card');
 
-cards.forEach(card => cardObserver.observe(card)); // Now this works
+cards.forEach(card => cardObserver.observe(card)); 
+
+let lastScrollY = window.scrollY;
+const navbar = document.querySelector('.navbar');
+
+window.addEventListener('scroll', () => {
+    if (!navbar) return;
+
+    if (window.scrollY > lastScrollY) {
+        // Scrolling down
+        navbar.classList.remove('show');
+        navbar.classList.add('hide');
+    } else {
+        // Scrolling up
+        navbar.classList.remove('hide');
+        navbar.classList.add('show');
+    }
+
+    lastScrollY = window.scrollY;
+});
+
 
 
