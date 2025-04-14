@@ -247,5 +247,9 @@ const cardObserver = new IntersectionObserver(entries => {
   });
 }, { threshold: 0.1 });
 
-cards.forEach(card => cardObserver.observe(card));
+// Define the cards variable to target the product cards
+const cards = document.querySelectorAll('.product-card');
+
+cards.forEach(card => cardObserver.observe(card)); // Now this works
+
 
