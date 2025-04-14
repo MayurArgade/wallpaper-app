@@ -69,59 +69,78 @@ body.dark-mode .intro-text {
 
 /* Navigation Bar */
 .navbar {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 20px;
-    background-color: rgba(255, 255, 255, 0.6); /* Make it semi-transparent */
-    backdrop-filter: blur(10px); /* Adds the blur effect */
-    -webkit-backdrop-filter: blur(10px); /* For Safari support */
-    padding: 15px 50px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    position: sticky;
-    top: 0;
-    width: 100%;
-    z-index: 1000;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.3); /* Optional subtle border */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 20px;
+  background-color: rgba(255, 255, 255, 0.6); 
+  backdrop-filter: blur(10px); 
+  -webkit-backdrop-filter: blur(10px); 
+  padding: 15px 50px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  position: sticky;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
 }
+
+/* Logo */
 .nav-left .logo {
-    font-size: 1.8rem;
-    font-weight: bold;
-    color: #333;
-  }
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #333;
+}
   
-  .nav-right {
-    display: flex;
-    align-items: center;
-  }
-  
+ .nav-right {
+  display: flex;
+  gap: 10px;
+}
 
-/* Navbar Button Style */
+/* === Button Glow on Hover === */
 .navbar button {
-    background: #352f51;
-    color: rgb(145, 198, 255);
-    border: none;
-    padding: 10px 20px;
-    font-size: 16px;
-    font-weight: bold;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: all 0.3s ease-in-out;
+  background: #352f51;
+  color: rgb(145, 198, 255);
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  font-weight: bold;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 0 transparent;
 }
 
 .navbar button:hover {
-    background-color: #2a2540;
-    transform: scale(1.05);
+  background: #7abaff;
+    transform: scale(1.1);
+    box-shadow: 0 6px 16px rgba(122, 186, 255, 0.4);
+    transition: all 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.55); /* SPRING */
 }
 
 
-.navbar button:hover {
-    background: #7abaff;
-    transform: scale(1.05);
-}
 /* Dark Mode Support */
 .dark-mode .navbar {
-    background: #222;
+  background-color: rgba(34, 34, 34, 0.6);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+/* === Auto-Hide Navbar Animation === */
+.navbar {
+  transform: translateY(0);
+  opacity: 1;
+  transition: transform 0.4s ease, opacity 0.4s ease;
+}
+
+.navbar.hide {
+  transform: translateY(-100%);
+  opacity: 0;
+}
+
+.navbar.show {
+  transform: translateY(0);
+  opacity: 1;
 }
 
 .dark-mode .navbar button {
@@ -536,31 +555,83 @@ body.shop-page {
     background-color: #ff5e42; /* Darker color on click */
   }
   
-
-/* Responsive Navbar - Mobile */
+/* === Mobile Responsive === */
 @media (max-width: 768px) {
-    .navbar {
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        padding: 10px;
-        gap: 10px; /* space between buttons */
-    }
+  .nav-right {
+      flex-direction: column;
+      width: 100%;
+      display: none;
+      margin-top: 10px;
+  }
 
-    .navbar button {
-        width: 100%;
-        max-width: 300px; /* Optional limit */
-        padding: 12px;
-        font-size: 18px;
-    }
+  .nav-right.active {
+      display: flex;
+      animation: fadeInDown 0.3s ease-in-out;
+  }
 
-    .wall-grid {
-        grid-template-columns: repeat(2, 1fr); /* Adjust to 1fr if needed */
-    }
+  .navbar {
+      align-items: flex-start;
+      padding: 15px;
+  }
 
-    /* Optional: if using .nav-icons somewhere else */
-    .nav-icons {
-        gap: 10px;
-    }
+  .nav-toggle {
+      display: block;
+      position: absolute;
+      right: 20px;
+      top: 18px;
+  }
+
+  .navbar button {
+      width: 100%;
+      text-align: center;
+      max-width: 300px;
+  }
 }
+/* Tablet Version (iPad or Similar) */
+@media (min-width: 768px) and (max-width: 1024px) {
+  .navbar {
+      flex-direction: row;
+      justify-content: space-between;
+      padding: 20px 30px;
+  }
 
+  .navbar button {
+      font-size: 14px;
+      padding: 8px 16px;
+  }
+
+  .wall-grid {
+      grid-template-columns: repeat(3, 1fr);
+  }
+}
+/* Desktop and Large Tablet - Horizontal Layout */
+@media (min-width: 1025px) {
+  .navbar {
+      flex-direction: row;
+      justify-content: space-around;
+      padding: 20px 50px;
+  }
+
+  .navbar button {
+      font-size: 16px;
+      padding: 10px 20px;
+  }
+
+  .wall-grid {
+      grid-template-columns: repeat(4, 1fr); 
+  }
+}
+/* === Animation for Mobile Dropdown === */
+@keyframes fadeInDown {
+  from {
+      opacity: 0;
+      transform: translateY(-10px);
+  }
+  to {
+      opacity: 1;
+      transform: translateY(0);
+  }
+}
+.navbar {
+  animation: slideFadeIn 0.6s ease-out;
+}
