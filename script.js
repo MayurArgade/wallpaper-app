@@ -186,3 +186,5 @@ document.addEventListener("contextmenu", function (event) {
         event.preventDefault();
     }
 });
+  // Observe each card
+  cards.forEach(card => cardObserver.observe(card));
