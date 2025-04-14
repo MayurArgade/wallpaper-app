@@ -1,5 +1,6 @@
 let wallpapers = [];  // Global wallpapers array
 
+// DOM Content Loaded - Theme and Load Wallpapers
 document.addEventListener("DOMContentLoaded", () => {
     const savedTheme = localStorage.getItem('theme');
     const icon = document.getElementById('themeIcon');
@@ -14,22 +15,22 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     loadWallpapers();
-});
 
-// Modal Close Logic
-document.addEventListener("DOMContentLoaded", function () {
+    // Modal Close Logic
     const modal = document.querySelector(".modal");
     const closeButton = document.querySelector(".close");
 
-    closeButton.addEventListener("click", () => {
-        modal.style.display = "none";
-    });
-
-    modal.addEventListener("click", (event) => {
-        if (event.target === modal) {
+    if (modal && closeButton) {
+        closeButton.addEventListener("click", () => {
             modal.style.display = "none";
-        }
-    });
+        });
+
+        modal.addEventListener("click", (event) => {
+            if (event.target === modal) {
+                modal.style.display = "none";
+            }
+        });
+    }
 });
 
 // Toggle Dark Mode (with Icon)
@@ -44,7 +45,7 @@ function toggleTheme() {
     icon?.classList.toggle('fa-moon', !isDark);
 }
 
-// Scroll Animation for .wall-item
+// Intersection Observer for animation
 const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
@@ -53,12 +54,10 @@ const observer = new IntersectionObserver((entries) => {
     });
 }, { threshold: 0.1 });
 
+// Observe wallpaper items
 document.querySelectorAll('.wall-item').forEach(el => observer.observe(el));
-
-// Scroll Animation for .product-card (new)
-document.querySelectorAll('.product-card').forEach(card => {
-    observer.observe(card);
-});
+// Observe product cards (if any)
+document.querySelectorAll('.product-card').forEach(card => observer.observe(card));
 
 // Load Wallpapers with Error Handling
 async function loadWallpapers() {
@@ -66,8 +65,8 @@ async function loadWallpapers() {
         const res = await fetch('https://wallpaper-app-ur40.onrender.com/api/wallpapers');
         if (!res.ok) throw new Error('Failed to load wallpapers');
 
-        wallpapers = await res.json();   // Save globally
-        displayWallpapers(wallpapers);   // Pass to display
+        wallpapers = await res.json();
+        displayWallpapers(wallpapers);
     } catch (error) {
         console.error('Error loading wallpapers:', error);
     }
@@ -76,6 +75,11 @@ async function loadWallpapers() {
 // Display Wallpapers with Description
 function displayWallpapers(wallpapers) {
     const container = document.getElementById("wallpaperContainer");
+    if (!container) {
+        console.warn("Container not found.");
+        return;
+    }
+
     container.innerHTML = "";
 
     wallpapers.forEach(wall => {
@@ -100,14 +104,14 @@ function openPreview(url) {
 
     const wallpaper = wallpapers.find(w => w.url === url);
 
-    modal.style.display = "flex";
-    modalImg.src = url;
-    downloadBtn.setAttribute("onclick", `downloadImage('${url}')`);
+    if (modal && modalImg && downloadBtn && modalDescription) {
+        modal.style.display = "flex";
+        modalImg.src = url;
+        downloadBtn.setAttribute("onclick", `downloadImage('${url}')`);
 
-    if (wallpaper) {
-        modalDescription.innerHTML = wallpaper.description;
-    } else {
-        modalDescription.innerHTML = "High-quality AI-generated wallpaper designed to elevate your device's aesthetic.";
+        modalDescription.innerHTML = wallpaper
+            ? wallpaper.description
+            : "High-quality AI-generated wallpaper designed to elevate your device's aesthetic.";
     }
 }
 
@@ -130,7 +134,8 @@ async function loadSimilarWallpapers(currentUrl, container) {
 
 // Close Preview Modal
 function closePreview() {
-    document.getElementById('previewModal').style.display = "none";
+    const modal = document.getElementById('previewModal');
+    if (modal) modal.style.display = "none";
 }
 
 // Download Image
@@ -186,5 +191,3 @@ document.addEventListener("contextmenu", function (event) {
         event.preventDefault();
     }
 });
-  // Observe each card
-  cards.forEach(card => cardObserver.observe(card));
