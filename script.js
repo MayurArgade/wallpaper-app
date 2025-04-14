@@ -1,13 +1,23 @@
 let wallpapers = [];  // Global wallpapers array
 
 document.addEventListener("DOMContentLoaded", () => {
-    if (localStorage.getItem('theme') === 'dark') {
+    const savedTheme = localStorage.getItem('theme');
+    const icon = document.getElementById('themeIcon');
+
+    if (savedTheme === 'dark') {
         document.body.classList.add('dark-mode');
+        icon?.classList.add('fa-sun');
+        icon?.classList.remove('fa-moon');
+    } else {
+        icon?.classList.add('fa-moon');
+        icon?.classList.remove('fa-sun');
     }
+
     loadWallpapers();
 });
 
-document.addEventListener("DOMContentLoaded", function() {
+// Modal Close Logic
+document.addEventListener("DOMContentLoaded", function () {
     const modal = document.querySelector(".modal");
     const closeButton = document.querySelector(".close");
 
@@ -22,12 +32,19 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 });
 
-// Toggle Dark Mode
+// Toggle Dark Mode (with Icon)
 function toggleTheme() {
-    document.body.classList.toggle('dark-mode');
-    localStorage.setItem('theme', document.body.classList.contains('dark-mode') ? 'dark' : 'light');
+    const body = document.body;
+    const icon = document.getElementById('themeIcon');
+    const isDark = body.classList.toggle('dark-mode');
+
+    localStorage.setItem('theme', isDark ? 'dark' : 'light');
+
+    icon?.classList.toggle('fa-sun', isDark);
+    icon?.classList.toggle('fa-moon', !isDark);
 }
-// Scroll Animation (Fix: Attach Observer to Elements)  
+
+// Scroll Animation for .wall-item
 const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
@@ -37,6 +54,11 @@ const observer = new IntersectionObserver((entries) => {
 }, { threshold: 0.1 });
 
 document.querySelectorAll('.wall-item').forEach(el => observer.observe(el));
+
+// Scroll Animation for .product-card (new)
+document.querySelectorAll('.product-card').forEach(card => {
+    observer.observe(card);
+});
 
 // Load Wallpapers with Error Handling
 async function loadWallpapers() {
@@ -69,7 +91,7 @@ function displayWallpapers(wallpapers) {
     });
 }
 
-
+// Open Wallpaper Preview
 function openPreview(url) {
     const modal = document.getElementById('previewModal');
     const modalImg = document.getElementById('modalImg');
@@ -95,9 +117,9 @@ async function loadSimilarWallpapers(currentUrl, container) {
         const res = await fetch('https://wallpaper-app-ur40.onrender.com/api/wallpapers');
         if (!res.ok) throw new Error('Failed to load similar wallpapers');
         const wallpapers = await res.json();
-        
+
         const similar = wallpapers.filter(w => w.url !== currentUrl).slice(0, 4);
-        
+
         container.innerHTML = similar.map(wall => `
             <img src="${wall.url}" onclick="openPreview('${wall.url}')" class="similar-img">
         `).join('');
@@ -134,10 +156,10 @@ async function filterWallpapers(premium) {
     }
 }
 
-// Buy Premium Wallpaper  
+// Buy Premium Wallpaper
 function buyPremium(wallpaperId) {
     const useRazorpay = confirm("Do you want to pay via Razorpay? Click 'Cancel' for Gumroad.");
-    
+
     if (useRazorpay) {
         const options = {
             key: "YOUR_RAZORPAY_KEY",
@@ -158,7 +180,7 @@ function buyPremium(wallpaperId) {
     }
 }
 
-// Disable Right Click on Images  
+// Disable Right Click on Images
 document.addEventListener("contextmenu", function (event) {
     if (event.target.tagName.toLowerCase() === "img" && event.target.closest(".wall-item")) {
         event.preventDefault();
