@@ -102,18 +102,29 @@ function openPreview(url) {
     const downloadBtn = document.getElementById('downloadBtn');
     const modalDescription = document.getElementById('modalDescription');
 
-    const wallpaper = wallpapers.find(w => w.url === url);
+    // Ensure wallpapers data is available
+    if (wallpapers.length === 0) {
+        console.error('No wallpapers available.');
+        return;
+    }
+
+    const wallpaper = wallpapers.find(w => w.url === url); // Find the wallpaper from the data
 
     if (modal && modalImg && downloadBtn && modalDescription) {
-        modal.style.display = "flex";
-        modalImg.src = url;
-        downloadBtn.setAttribute("onclick", `downloadImage('${url}')`);
+        modal.style.display = "flex"; // Open the modal
 
+        modalImg.src = url; // Set the image source to the provided URL
         modalDescription.innerHTML = wallpaper
             ? wallpaper.description
-            : "High-quality AI-generated wallpaper designed to elevate your device's aesthetic.";
+            : "High-quality AI-generated wallpaper designed to elevate your device's aesthetic."; // Set the description
+
+        // Update the download button action dynamically
+        downloadBtn.onclick = function() {
+            downloadImage(url); // Trigger image download
+        };
     }
 }
+
 
 // Load Similar Wallpapers
 async function loadSimilarWallpapers(currentUrl, container) {
