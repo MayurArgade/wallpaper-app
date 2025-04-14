@@ -238,3 +238,14 @@ categoryButtons.forEach(button => {
   });
 });
 
+const cardObserver = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    console.log(entry.isIntersecting);  // Log if the element is in view
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+    }
+  });
+}, { threshold: 0.1 });
+
+cards.forEach(card => cardObserver.observe(card));
+
