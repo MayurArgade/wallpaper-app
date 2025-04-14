@@ -191,3 +191,26 @@ document.addEventListener("contextmenu", function (event) {
         event.preventDefault();
     }
 });
+// Category Filtering
+const categoryButtons = document.querySelectorAll('.category-btn');
+const products = document.querySelectorAll('.product-card');
+
+// Add click event listener to each category button
+categoryButtons.forEach(button => {
+  button.addEventListener('click', function () {
+    const category = button.dataset.category;
+    
+    // Highlight the active button
+    categoryButtons.forEach(btn => btn.classList.remove('active'));
+    button.classList.add('active');
+    
+    // Filter products based on category
+    products.forEach(product => {
+      if (category === 'all' || product.dataset.category === category) {
+        product.style.display = 'block'; // Show product
+      } else {
+        product.style.display = 'none'; // Hide product
+      }
+    });
+  });
+});
