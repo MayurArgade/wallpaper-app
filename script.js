@@ -69,6 +69,10 @@ async function loadWallpapers() {
         displayWallpapers(wallpapers);
     } catch (error) {
         console.error('Error loading wallpapers:', error);
+        const container = document.getElementById("wallpaperContainer");
+        if (container) {
+            container.innerHTML = '<p>Sorry, no wallpapers available at the moment. Please try again later.</p>';
+        }
     }
 }
 
@@ -120,11 +124,18 @@ function openPreview(url) {
 
         // Update the download button action dynamically
         downloadBtn.onclick = function() {
+            // Disable the download button to prevent multiple clicks
+            downloadBtn.disabled = true;
+
             downloadImage(url); // Trigger image download
+
+            // Re-enable the download button after a brief delay
+            setTimeout(() => {
+                downloadBtn.disabled = false;
+            }, 1000); // Adjust delay as needed
         };
     }
 }
-
 
 // Load Similar Wallpapers
 async function loadSimilarWallpapers(currentUrl, container) {
@@ -202,6 +213,7 @@ document.addEventListener("contextmenu", function (event) {
         event.preventDefault();
     }
 });
+
 // Category Filtering
 const categoryButtons = document.querySelectorAll('.category-btn');
 const products = document.querySelectorAll('.product-card');
@@ -225,3 +237,4 @@ categoryButtons.forEach(button => {
     });
   });
 });
+
