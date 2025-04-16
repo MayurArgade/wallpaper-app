@@ -337,7 +337,32 @@ body.shop-page {
     padding: 0;
     transition: all 0.3s ease;
   }
-  
+  .shop-intro {
+  text-align: center; 
+  padding: 50px 20px; 
+  background-color: #f1f1f1; 
+  border-radius: 15px; 
+  margin: 50px auto;
+  max-width: 900px; 
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); 
+}
+
+.shop-intro h2 {
+  font-size: 2.2rem; 
+  color: #222;
+  font-weight: bold;
+  margin-bottom: 20px;
+  letter-spacing: 1px;
+}
+
+.shop-intro p {
+  font-size: 1.2rem; 
+  color: #666; 
+  line-height: 1.8; 
+  max-width: 800px; 
+  margin: 0 auto;
+}
+
   .shop-navbar {
     display: flex;
     justify-content: space-between;
