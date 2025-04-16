@@ -1,8 +1,9 @@
-from fastapi import FastAPI, File, UploadFile, Form
+from fastapi import FastAPI, File, UploadFile, Form, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 import cloudinary
 import cloudinary.uploader
 import json
+import logging
 
 # Cloudinary Configuration
 cloudinary.config( 
@@ -39,15 +40,30 @@ def save_wallpapers(data):
     with open(WALLPAPER_DB, "w") as file:
         json.dump(data, file, indent=4)
 
+# Ensure the file is an image and handle file type validation
+def is_valid_image(file: UploadFile) -> bool:
+    allowed_extensions = ["jpg", "jpeg", "png", "webp"]
+    file_extension = file.filename.split(".")[-1].lower()
+    return file_extension in allowed_extensions
+
 # Upload wallpaper route
 @app.post("/api/upload/")
 async def upload_wallpaper(
     file: UploadFile = File(...), 
     premium: str = Form(...),
 ):
+    if not is_valid_image(file):
+        raise HTTPException(status_code=400, detail="Invalid file type. Only images are allowed.")
+
     try:
-        # Upload file to Cloudinary
-        upload_result = cloudinary.uploader.upload(file.file)
+        # Upload file to Cloudinary with transformations
+        upload_result = cloudinary.uploader.upload(
+            file.file, 
+            format="webp",  # Ensure the image is in WebP format for optimization
+            quality="auto",  # Automatically adjust quality for optimization
+            width=800,  # Resize image to a maximum width (change as necessary)
+            crop="limit"  # Ensure image is cropped within the given dimensions
+        )
         cloudinary_url = upload_result['secure_url']
 
         # Convert "premium" field to boolean
@@ -64,6 +80,7 @@ async def upload_wallpaper(
             "premium": is_premium
         }
     except Exception as e:
+        logging.error(f"Error uploading wallpaper: {e}")
         return {"message": "Error uploading wallpaper", "error": str(e)}
 
 # Get wallpapers route
@@ -73,4 +90,5 @@ async def get_wallpapers():
         wallpapers = load_wallpapers()  # Load from the JSON file
         return wallpapers
     except Exception as e:
+        logging.error(f"Error fetching wallpapers: {e}")
         return {"message": "Error fetching wallpapers", "error": str(e)}
