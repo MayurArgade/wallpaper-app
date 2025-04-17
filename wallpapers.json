@@ -117,5 +117,17 @@
         "url": "https://res.cloudinary.com/dvpvasmkm/image/upload/v1744638077/q7voenlogvxaxsemr79s.jpg",
         "premium": false,
         "description": "High-quality AI-generated wallpaper designed to elevate your device's aesthetic."
-    }
+    },
+    
+     {
+        "url": "https://res.cloudinary.com/dvpvasmkm/image/upload/v1744868123/who_cares_wallpaper_krttqg.jpg",
+        "premium": true,
+        "description": "High-quality AI-generated wallpaper designed to elevate your device's aesthetic."
+    },    
+    
+     {
+        "url": "https://res.cloudinary.com/dvpvasmkm/image/upload/v1744868139/one-piece-whitehat_g0bw2z.jpg",
+        "premium": true,
+        "description": "High-quality AI-generated wallpaper designed to elevate your device's aesthetic."
+    } 
 ]
