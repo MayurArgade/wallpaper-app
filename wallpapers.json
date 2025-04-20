@@ -129,5 +129,17 @@
         "url": "https://res.cloudinary.com/dvpvasmkm/image/upload/v1744868139/one-piece-whitehat_g0bw2z.jpg",
         "premium": true,
         "description": "High-quality AI-generated wallpaper designed to elevate your device's aesthetic."
-    } 
+    },
+    
+    {
+        "url": "https://res.cloudinary.com/dvpvasmkm/image/upload/v1745153604/wall2_jxwjgj.jpg",
+        "premium": true,
+        "description": "High-quality AI-generated wallpaper designed to elevate your device's aesthetic."
+    },
+    
+    {
+        "url": "https://res.cloudinary.com/dvpvasmkm/image/upload/v1745153608/wall3_uw539x.jpg",
+        "premium": false,
+        "description": "High-quality AI-generated Pokemon wallpaper designed to elevate your device's aesthetic."
+    }
 ]
