@@ -79,25 +79,40 @@ async function loadWallpapers() {
 // Display Wallpapers with Description
 function displayWallpapers(wallpapers) {
     const container = document.getElementById("wallpaperContainer");
-    if (!container) {
-        console.warn("Container not found.");
-        return;
-    }
+    if (!container) return;
 
     container.innerHTML = "";
+
+    // Sort with "isNew" wallpapers first
+    wallpapers.sort((a, b) => (b.isNew === true) - (a.isNew === true));
+
+    // Get seen URLs from localStorage
+    const seenWallpapers = JSON.parse(localStorage.getItem('seenWallpapers') || '[]');
 
     wallpapers.forEach(wall => {
         const div = document.createElement("div");
         div.classList.add("wall-item");
 
+        const isNew = wall.isNew && !seenWallpapers.includes(wall.url);
+
         div.innerHTML = `
+            ${isNew ? '<span class="new-badge">NEW</span>' : ''}
             <img src="${wall.url}" alt="Wallpaper" onclick="openPreview('${wall.url}')">
             <p>${wall.description}</p>
         `;
 
         container.appendChild(div);
+
+        // Mark it as seen
+        if (isNew) {
+            seenWallpapers.push(wall.url);
+        }
     });
+
+    // Save updated list
+    localStorage.setItem('seenWallpapers', JSON.stringify(seenWallpapers));
 }
+
 
 // Open Wallpaper Preview
 function openPreview(url) {
