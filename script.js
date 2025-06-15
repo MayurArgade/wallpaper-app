@@ -102,7 +102,12 @@ function displayWallpapers(wallpapers) {
         `;
 
         container.appendChild(div);
-
+        if (isNew) {
+    setTimeout(() => {
+        const badge = div.querySelector('.new-badge');
+        if (badge) badge.remove(); 
+    }, 7000);
+};
         // Mark it as seen
         if (isNew) {
             seenWallpapers.push(wall.url);
