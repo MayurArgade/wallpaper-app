@@ -75,7 +75,6 @@ async function loadWallpapers() {
         }
     }
 }
-
 // Display Wallpapers with Description
 function displayWallpapers(wallpapers) {
     const container = document.getElementById("wallpaperContainer");
@@ -83,17 +82,21 @@ function displayWallpapers(wallpapers) {
 
     container.innerHTML = "";
 
-    // Sort with "isNew" wallpapers first
-    wallpapers.sort((a, b) => (b.isNew === true) - (a.isNew === true));
+    // Load "seen" data with timestamps
+    const seenData = JSON.parse(localStorage.getItem('seenWallpapersWithTime') || '{}');
+    const now = Date.now();
+    const hoursToKeepNew = 12; // hours to keep 
+    const expireTime = hoursToKeepNew * 60 * 60 * 1000;
 
-    // Get seen URLs from localStorage
-    const seenWallpapers = JSON.parse(localStorage.getItem('seenWallpapers') || '[]');
+    // Sort: "isNew" items first
+    wallpapers.sort((a, b) => (b.isNew === true) - (a.isNew === true));
 
     wallpapers.forEach(wall => {
         const div = document.createElement("div");
         div.classList.add("wall-item");
 
-        const isNew = wall.isNew && !seenWallpapers.includes(wall.url);
+        const lastSeen = seenData[wall.url];
+        const isNew = wall.isNew && (!lastSeen || now - lastSeen < expireTime);
 
         div.innerHTML = `
             ${isNew ? '<span class="new-badge">NEW</span>' : ''}
@@ -102,21 +105,17 @@ function displayWallpapers(wallpapers) {
         `;
 
         container.appendChild(div);
-        if (isNew) {
-    setTimeout(() => {
-        const badge = div.querySelector('.new-badge');
-        if (badge) badge.remove(); 
-    }, 7000);
-};
-        // Mark it as seen
-        if (isNew) {
-            seenWallpapers.push(wall.url);
+
+        // Save first-time seen timestamp
+        if (isNew && !lastSeen) {
+            seenData[wall.url] = now;
         }
     });
 
-    // Save updated list
-    localStorage.setItem('seenWallpapers', JSON.stringify(seenWallpapers));
+    // Save updated "seen" timestamps
+    localStorage.setItem('seenWallpapersWithTime', JSON.stringify(seenData));
 }
+
 
 
 // Open Wallpaper Preview
