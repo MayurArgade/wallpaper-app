@@ -662,17 +662,11 @@ body.shop-page {
 .navbar {
   animation: slideFadeIn 0.6s ease-out;
 }
-@keyframes bounceIn {
-  0% { transform: scale(0); opacity: 0; }
-  60% { transform: scale(1.2); opacity: 1; }
-  100% { transform: scale(1); }
-}
-
 .new-badge {
   position: absolute;
   top: 10px;
   left: 10px;
-  background: #ff2d55;
+  background: #F2F2F2;
   color: white;
   font-size: 0.7rem;
   font-weight: bold;
@@ -682,4 +676,11 @@ body.shop-page {
   box-shadow: 0 2px 6px rgba(0,0,0,0.2);
   animation: bounceIn 0.4s ease-out;
 }
+
+@keyframes bounceIn {
+  0% { transform: scale(0); opacity: 0; }
+  60% { transform: scale(1.2); opacity: 1; }
+  100% { transform: scale(1); }
+}
+
 
