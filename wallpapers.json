@@ -177,5 +177,17 @@
         "premium": true,
         "description": "High-quality AI-generated wallpaper designed to elevate your device's aesthetic.",
         "isNew": true
+    },
+    {
+        "url": "https://res.cloudinary.com/dvpvasmkm/image/upload/v1750345671/BMW-Picsart-AiImageEnhancer_xk33cs.png",
+        "premium": true,
+        "description": "High-quality AI-generated wallpaper designed to elevate your device's aesthetic.",
+        "isNew": true
+    },
+    {
+        "url": "https://res.cloudinary.com/dvpvasmkm/image/upload/v1750345643/god_plan_vodyyp.png",
+        "premium": true,
+        "description": "High-quality AI-generated wallpaper designed to elevate your device's aesthetic.",
+        "isNew": true
     }
 ]
