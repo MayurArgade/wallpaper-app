@@ -146,19 +146,19 @@
         "url": "https://res.cloudinary.com/dvpvasmkm/image/upload/v1749993464/Pink_room_nohkpx.png",
         "premium": false,
         "description": "High-quality AI-generated Cute wallpaper designed to elevate your device's aesthetic.",
-        "isNew": true
+        "isNew": false
     },
     {
         "url": "https://res.cloudinary.com/dvpvasmkm/image/upload/v1749993464/Minecraft_doreamon_Shin-chan_abqdqz.png",
         "premium": false,
         "description": "High-quality Awesome Minecraft style Shinchan, Doreamon AI-generated wallpaper designed to elevate your device's aesthetic.",
-        "isNew": true
+        "isNew": false
     },
     {
         "url": "https://res.cloudinary.com/dvpvasmkm/image/upload/v1749993465/Mouse_pad_gqvslu.png",
         "premium": false,
         "description": "High-quality Super Cool AI-generated wallpaper designed to elevate your device's aesthetic.",
-        "isNew": true
+        "isNew": false
     },
     {
         "url": "https://res.cloudinary.com/dvpvasmkm/image/upload/v1749993465/Kitty_Akatsuki_crn4oq.png",
@@ -176,17 +176,17 @@
         "url": "https://res.cloudinary.com/dvpvasmkm/image/upload/v1749993462/Crying_girl_v2uccg.png",
         "premium": true,
         "description": "High-quality AI-generated wallpaper designed to elevate your device's aesthetic.",
-        "isNew": true
+        "isNew": false
     },
     {
         "url": "https://res.cloudinary.com/dvpvasmkm/image/upload/v1750345671/BMW-Picsart-AiImageEnhancer_xk33cs.png",
-        "premium": true,
+        "premium": false,
         "description": "High-quality AI-generated wallpaper designed to elevate your device's aesthetic.",
         "isNew": true
     },
     {
         "url": "https://res.cloudinary.com/dvpvasmkm/image/upload/v1750345643/god_plan_vodyyp.png",
-        "premium": true,
+        "premium": false,
         "description": "High-quality AI-generated wallpaper designed to elevate your device's aesthetic.",
         "isNew": true
     }
