@@ -9,17 +9,40 @@ html {
   scroll-behavior: smooth;
 }
 body {
-    background-color: #fafafa;
-    color: #262626;
+  margin: 0;
+  font-family: 'Unbounded', sans-serif;
+  overflow-x: hidden;
+  transition: background 0.4s ease, color 0.4s ease;
 }
-.dark-mode {
-    background-color: #181818;
-    color: #fff;
+body:not(.dark-mode) .navbar-glass {
+  background: rgba(255, 255, 255, 0.6); /* more visible glass on white background */
+  color: #000;
 }
 
-/* Optional: Change icons or colors in dark mode */
-.dark-mode .theme-toggle {
-    color: #ffcc00;
+body:not(.dark-mode) .navbar-glass button,
+body:not(.dark-mode) .navbar-glass a {
+  color: #111;
+  border-color: rgba(0, 0, 0, 0.1);
+  background: rgba(255, 255, 255, 0.3);
+}
+
+body:not(.dark-mode) .navbar-glass button:hover,
+body:not(.dark-mode) .navbar-glass a:hover {
+  background: rgba(0, 0, 0, 0.05);
+  color: #000;
+}
+
+
+/* Light Theme (default) */
+body:not(.dark-mode) {
+  background: #fafafa;
+  color: #262626;
+}
+
+/* Dark Theme */
+body.dark-mode {
+  background: #0e0e10;
+  color: #ffffff;
 }
 
 h1, h2 {
