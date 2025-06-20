@@ -732,4 +732,28 @@ body.shop-page {
   color: #000;
   transform: scale(1.05);
 }
+.section-title {
+  text-align: center;
+  font-size: 2rem;
+  margin-top: 40px;
+  font-family: 'Orbitron', sans-serif;
+  color: #ff00cc;
+  text-shadow: 0 0 10px #ff00cc;
+}
+/* FOOTER */
+.footer-glow {
+  text-align: center;
+  padding: 40px;
+  border-top: 1px solid rgba(255,255,255,0.1);
+  font-size: 0.9rem;
+  color: #888;
+}
+.footer-glow .footer-links a {
+  margin: 0 10px;
+  color: #aaa;
+  text-decoration: none;
+}
+.footer-glow .footer-links a:hover {
+  color: #fff;
+}
 
