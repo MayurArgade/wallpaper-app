@@ -189,5 +189,11 @@
         "premium": false,
         "description": "High-quality AI-generated wallpaper designed to elevate your device's aesthetic.",
         "isNew": true
+    },
+        {
+        "url": "https://res.cloudinary.com/dvpvasmkm/image/upload/v1750857876/zoro_chatgpt_j049sn.png",
+        "premium": false,
+        "description": "High-quality AI-generated wallpaper designed to elevate your device's aesthetic.",
+        "isNew": true
     }
 ]
