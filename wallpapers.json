@@ -164,7 +164,7 @@
         "url": "https://res.cloudinary.com/dvpvasmkm/image/upload/v1749993465/Kitty_Akatsuki_crn4oq.png",
         "premium": false,
         "description": "High-quality Akatsuki Cat AI-generated wallpaper designed to elevate your device's aesthetic.",
-        "isNew": true
+        "isNew": false
     },
     {
         "url": "https://res.cloudinary.com/dvpvasmkm/image/upload/v1749993466/404_love_c11wmw.png",
@@ -182,16 +182,23 @@
         "url": "https://res.cloudinary.com/dvpvasmkm/image/upload/v1750345671/BMW-Picsart-AiImageEnhancer_xk33cs.png",
         "premium": false,
         "description": "High-quality AI-generated wallpaper designed to elevate your device's aesthetic.",
-        "isNew": true
+        "isNew": false
     },
     {
         "url": "https://res.cloudinary.com/dvpvasmkm/image/upload/v1750345643/god_plan_vodyyp.png",
         "premium": false,
         "description": "High-quality AI-generated wallpaper designed to elevate your device's aesthetic.",
-        "isNew": true
+        "isNew": false
     },
         {
         "url": "https://res.cloudinary.com/dvpvasmkm/image/upload/v1750857876/zoro_chatgpt_j049sn.png",
+        "premium": false,
+        "description": "High-quality AI-generated wallpaper designed to elevate your device's aesthetic.",
+        "isNew": false
+    },
+    
+    {
+        "url": "https://res.cloudinary.com/dvpvasmkm/image/upload/v1751207246/focus_g7c41n.png",
         "premium": false,
         "description": "High-quality AI-generated wallpaper designed to elevate your device's aesthetic.",
         "isNew": true
