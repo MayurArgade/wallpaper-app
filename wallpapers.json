@@ -207,6 +207,12 @@
         "url": "https://res.cloudinary.com/dvpvasmkm/image/upload/v1751605350/eren_1_uhsews.jpg",
         "premium": false,
         "description": "High-quality AI-generated wallpaper designed to elevate your device's aesthetic.",
+        "isNew": false
+    },
+    {
+        "url": "https://res.cloudinary.com/dvpvasmkm/image/upload/v1752235498/photo_5_2025-07-11_17-29-45_wgh7ji.jpg",
+        "premium": false,
+        "description": "High-quality AI-generated wallpaper designed to elevate your device's aesthetic.",
         "isNew": true
-    }
+    },
 ]
